@@ -1,0 +1,109 @@
+:root {
+  --glitch-color: #fff;
+  --glitch-primary: #FF013C;
+  --glitch-secondary: #00E6F6;
+  --glitch-accent: #F8F005;
+}
+
+.glitch-button,
+.glitch-button .alt {
+  position: relative;
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  min-height: 78px;
+  padding: 0.8rem;
+  border: 0;
+  border-right: 6px solid var(--glitch-secondary);
+  font-family: 'Bebas Neue', sans-serif;
+  color: var(--glitch-color);
+  font-size: 1rem;
+  letter-spacing: 3px;
+  line-height: 1;
+  text-align: right;
+  background: linear-gradient(45deg, transparent 8px, var(--glitch-primary) 8px);
+  outline: none;
+  user-select: none;
+  touch-action: manipulation;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.glitch-button .alt {
+  --slice-0: inset(50% 50% 50% 50%);
+  --slice-1: inset(80% -6px 0 0);
+  --slice-2: inset(50% -6px 30% 0);
+  --slice-3: inset(10% -6px 85% 0);
+  --slice-4: inset(40% -6px 43% 0);
+  --slice-5: inset(80% -6px 5% 0);
+
+  position: absolute;
+  display: none;
+  inset: 0;
+  background: linear-gradient(45deg, transparent 5px, var(--glitch-secondary) 5px, var(--glitch-secondary) 8px, var(--glitch-primary) 8px);
+  text-shadow: -3px -3px 0px var(--glitch-accent), 3px 3px 0px var(--glitch-secondary);
+  clip-path: var(--slice-0);
+}
+
+.glitch-button:hover .alt {
+  display: block;
+  animation: 2s glitch;
+  animation-timing-function: steps(2, end);
+}
+
+@keyframes glitch {
+  0% {
+    clip-path: var(--slice-1);
+    transform: translate(-20px, -10px);
+  }
+
+  10% {
+    clip-path: var(--slice-3);
+    transform: translate(10px, 10px);
+  }
+
+  20% {
+    clip-path: var(--slice-1);
+    transform: translate(-10px, 10px);
+  }
+
+  30% {
+    clip-path: var(--slice-3);
+    transform: translate(0px, 5px);
+  }
+
+  40% {
+    clip-path: var(--slice-2);
+    transform: translate(-5px, 0px);
+  }
+
+  50% {
+    clip-path: var(--slice-3);
+    transform: translate(5px, 0px);
+  }
+
+  60% {
+    clip-path: var(--slice-4);
+    transform: translate(5px, 10px);
+  }
+
+  70% {
+    clip-path: var(--slice-2);
+    transform: translate(-10px, 10px);
+  }
+
+  80% {
+    clip-path: var(--slice-5);
+    transform: translate(20px, -10px);
+  }
+
+  90% {
+    clip-path: var(--slice-1);
+    transform: translate(-10px, 0px);
+  }
+
+  100% {
+    clip-path: var(--slice-1);
+    transform: translate(0);
+  }
+}
